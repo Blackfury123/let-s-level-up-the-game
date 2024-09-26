@@ -8,7 +8,7 @@ font_size=70
 
 pygame.init()
 
-backgroud_image = pygame.transform.scale(pygame.image.load("./bg.jpg"),(screen_width, screen_height))
+backgroud_image = pygame.transform.scale(pygame.image.load("flappy.jpg"),(screen_width, screen_height))
 
 font=pygame.font.SysFont("Times New Roman",font_size)
 class Sprite(pygame.sprite.Sprite):
@@ -36,7 +36,7 @@ sprite1.rect.x = random.randint(0, screen_width - sprite1.rect.width)
 sprite1.rect.y =random.randint(0, screen_height - sprite1.rect.height)
 all_sprites.add(sprite1)
 
-sprite2=Sprite(pygame.color('red'),20,30)
+sprite2=Sprite(pygame.Color('red'),20,30)
 sprite2.rect.x = random.randint(0,screen_width - sprite2.rect.width)
 sprite2.rect.y = random.randint(0,screen_height - sprite2.rect.height)
 all_sprites.add(sprite2)
@@ -52,7 +52,7 @@ while running:
   if not won:
     keys = pygame.key.get_pressed()
     x_change = (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]) * movement_speed
-    y_change = (keys[pygame.K_DOWN] - keys[pygame.k_up]) * movement_speed
+    y_change = (keys[pygame.K_DOWN] - keys[pygame.K_UP]) * movement_speed
     sprite1.move(x_change,y_change)
 
     if sprite1.rect.colliderect(sprite2.rect):
